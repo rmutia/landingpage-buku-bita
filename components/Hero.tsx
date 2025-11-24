@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Star } from 'lucide-react';
+import { ArrowRight, BookOpen, Star, Zap, MousePointer2 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const scrollToPricing = () => {
@@ -11,96 +11,116 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-        <div className="absolute inset-0 hero-pattern"></div>
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#e0f2fe]">
+        <div className="absolute inset-0 halftone-pattern"></div>
         
-        {/* Abstract Blobs */}
-        <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div className="absolute top-0 left-0 -translate-y-12 -translate-x-12 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        {/* Abstract Geo Shapes */}
+        <div className="absolute top-40 right-[10%] w-24 h-24 bg-brand-yellow border-4 border-black shadow-neobrutal rotate-12 hidden lg:block"></div>
+        <div className="absolute bottom-20 left-[5%] w-32 h-32 bg-brand-purple rounded-full border-4 border-black shadow-neobrutal -rotate-6 hidden lg:block"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="lg:w-1/2 text-center lg:text-left space-y-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-medium tracking-wide uppercase">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                    </span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="lg:w-1/2 text-center lg:text-left space-y-8 z-10">
+                <div className="inline-flex items-center gap-3 px-6 py-3 bg-brand-lime border-4 border-black shadow-neobrutal-sm text-black text-sm font-bold font-display uppercase tracking-wider transform -rotate-1 hover:rotate-0 transition-transform cursor-default">
+                    <Zap className="w-5 h-5 fill-black" />
                     Baru Rilis 2025
                 </div>
                 
-                <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight text-slate-900 leading-[1.1]">
-                    Belajar Komputer Jadi <span className="text-gradient">Seru</span> Bersama Bita!
+                <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-black leading-[0.9] font-display">
+                    BELAJAR KOMPUTER JADI <br/>
+                    <span className="text-transparent text-stroke-sm hover:text-brand-cyan transition-colors duration-300">SERU</span> BERSAMA BITA!
                 </h1>
                 
-                <p className="text-lg lg:text-xl text-slate-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-xl text-black max-w-2xl mx-auto lg:mx-0 font-medium font-sans border-l-8 border-brand-purple pl-6 py-2 bg-white/50 backdrop-blur-sm">
                     Buku aktivitas interaktif untuk anak usia 7–10 tahun yang mengenalkan cara kerja komputer, berpikir komputasi, dan literasi digital dengan cara paling mudah dan menyenangkan.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                    <button onClick={scrollToPricing} className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-full font-medium text-base shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
+                    <button onClick={scrollToPricing} className="w-full sm:w-auto px-8 py-4 bg-black text-white border-4 border-transparent hover:bg-brand-lime hover:text-black hover:border-black shadow-neobrutal hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all font-bold text-xl flex items-center justify-center gap-3 uppercase font-display">
                         Beli Sekarang
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-6 h-6" />
                     </button>
-                    <button onClick={scrollToPreview} className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-700 rounded-full font-medium text-base hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-                        <BookOpen className="w-4 h-4" />
+                    <button onClick={scrollToPreview} className="w-full sm:w-auto px-8 py-4 bg-white text-black border-4 border-black shadow-neobrutal hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all font-bold text-xl flex items-center justify-center gap-3 uppercase font-display group">
+                        <BookOpen className="w-6 h-6 group-hover:scale-110 transition-transform" />
                         Lihat Isi Buku
                     </button>
                 </div>
                 
-                <div className="flex items-center justify-center lg:justify-start gap-4 pt-4">
-                    <div className="flex -space-x-3">
-                        <img className="w-10 h-10 rounded-full border-2 border-white bg-yellow-100" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" />
-                        <img className="w-10 h-10 rounded-full border-2 border-white bg-blue-100" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="User" />
-                        <img className="w-10 h-10 rounded-full border-2 border-white bg-purple-100" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mimi" alt="User" />
+                <div className="flex items-center justify-center lg:justify-start gap-5 pt-6">
+                    <div className="flex -space-x-6 hover:space-x-1 transition-all duration-300">
+                        <div className="w-14 h-14 border-4 border-black bg-brand-cyan rounded-full z-30 overflow-hidden">
+                           <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" />
+                        </div>
+                        <div className="w-14 h-14 border-4 border-black bg-brand-pink rounded-full z-20 overflow-hidden">
+                            <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="User" />
+                        </div>
+                        <div className="w-14 h-14 border-4 border-black bg-brand-lime rounded-full z-10 overflow-hidden">
+                            <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mimi" alt="User" />
+                        </div>
                     </div>
-                    <p className="text-sm text-slate-500 font-medium">Disukai oleh <span className="text-slate-800">500+</span> Orang Tua & Guru</p>
+                    <div className="text-left bg-white px-4 py-2 border-2 border-black shadow-neobrutal-sm">
+                         <p className="text-sm text-black font-bold uppercase font-display">Disukai oleh 500+ Orang Tua & Guru</p>
+                         <div className="flex gap-1">
+                             {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-brand-yellow text-black" />)}
+                         </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="lg:w-1/2 relative">
-                {/* Book Mockup */}
-                <div className="relative mx-auto w-[280px] sm:w-[350px] aspect-[3/4] bg-gradient-to-br from-indigo-500 to-purple-600 rounded-r-2xl rounded-l-sm book-shadow transform rotate-[-3deg] hover:rotate-0 transition-transform duration-500">
-                    {/* Spine effect */}
-                    <div className="absolute left-0 top-0 bottom-0 w-3 bg-white/20 rounded-l-sm"></div>
+            <div className="lg:w-1/2 relative flex justify-center perspective-1000 mt-12 lg:mt-0">
+                {/* Neo Brutalist Book Mockup */}
+                <div className="relative w-[340px] sm:w-[420px] aspect-[3/4] bg-white border-4 border-black shadow-neobrutal-lg transform rotate-3 hover:rotate-0 transition-all duration-500 z-10 group">
                     
-                    {/* Cover Content */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-between p-8 text-white">
-                        <div className="w-full flex justify-between items-start">
-                            <span className="font-bold tracking-widest text-xs opacity-80">EDISI PERTAMA</span>
-                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                                <Star className="w-4 h-4 fill-yellow-300 text-yellow-300" />
-                            </div>
-                        </div>
-                        
-                        <div className="text-center space-y-4">
-                            {/* Character Bita Illustration CSS */}
-                            <div className="w-32 h-32 bg-white rounded-2xl mx-auto relative border-4 border-slate-900 flex items-center justify-center shadow-lg">
-                                <div className="w-24 h-20 bg-blue-100 rounded-lg border-2 border-slate-900 relative overflow-hidden">
-                                    {/* Screen Face */}
-                                    <div className="absolute top-6 left-5 w-3 h-3 bg-slate-900 rounded-full"></div>
-                                    <div className="absolute top-6 right-5 w-3 h-3 bg-slate-900 rounded-full"></div>
-                                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-6 h-3 border-b-4 border-slate-900 rounded-full"></div>
-                                </div>
-                                {/* Antenna */}
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-1 h-6 bg-slate-900"></div>
-                                <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-4 h-4 bg-red-400 rounded-full border-2 border-slate-900"></div>
-                            </div>
-                            
-                            <h2 className="text-4xl font-bold tracking-tight drop-shadow-md font-sans">KREABITA</h2>
-                            <p className="text-sm font-medium opacity-90 bg-white/10 px-3 py-1 rounded-full inline-block">Berpetualang di Dunia Komputer</p>
+                    {/* Cover Art */}
+                    <div className="absolute inset-0 flex flex-col bg-brand-cyan">
+                        {/* Top Bar */}
+                        <div className="h-12 border-b-4 border-black bg-white flex items-center justify-between px-4">
+                             <div className="flex gap-2">
+                                 <div className="w-3 h-3 rounded-full bg-black"></div>
+                                 <div className="w-3 h-3 rounded-full bg-black"></div>
+                             </div>
+                             <span className="font-mono text-sm font-bold">VOL. 01</span>
                         </div>
 
-                        <div className="w-full pt-8 border-t border-white/20">
-                            <div className="flex justify-between items-center text-xs font-medium">
-                                <span>Untuk Usia 7-10</span>
-                                <span>Aktivitas & Cerita</span>
+                        <div className="flex-1 p-6 flex flex-col items-center justify-center relative overflow-hidden">
+                            {/* Background Pattern on Book */}
+                            <div className="absolute inset-0 halftone-pattern opacity-20"></div>
+                            
+                            {/* Sticker */}
+                            <div className="absolute top-4 right-4 bg-brand-yellow text-black text-xs font-bold px-3 py-2 border-2 border-black rotate-12 shadow-[2px_2px_0px_black]">
+                                BEST SELLER!
+                            </div>
+
+                            {/* Main Title */}
+                            <div className="relative z-10 text-center border-4 border-black bg-white p-6 shadow-neobrutal mb-6">
+                                <h2 className="text-6xl font-black font-display tracking-tighter text-black uppercase leading-none">
+                                    KREA<br/>BITA
+                                </h2>
+                                <div className="w-full h-2 bg-black my-2"></div>
+                                <p className="font-mono text-lg font-bold">COMPUTER SCIENCE FOR KIDS</p>
+                            </div>
+
+                            {/* Character Illustration Placeholder */}
+                            <div className="relative">
+                                <div className="w-24 h-24 bg-brand-pink border-4 border-black rounded-full flex items-center justify-center animate-bounce-slow">
+                                    <MousePointer2 className="w-12 h-12 text-black" />
+                                </div>
+                                <div className="absolute -bottom-2 -right-2 bg-white border-2 border-black px-2 py-1 font-bold text-xs">BITA</div>
+                            </div>
+                        </div>
+
+                        {/* Bottom Bar */}
+                        <div className="h-16 border-t-4 border-black bg-brand-lime flex items-center justify-between px-6">
+                            <span className="font-display font-bold text-xl uppercase">Edisi Pertama</span>
+                            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white">
+                                <span className="font-mono text-xs">ID</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                {/* Decorative Elements behind book */}
-                <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-100/50 to-purple-100/50 rounded-full blur-3xl"></div>
+                {/* Background Decor */}
+                <div className="absolute top-10 left-10 w-full h-full border-4 border-black bg-transparent -z-10"></div>
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-purple border-4 border-black rounded-full mix-blend-multiply animate-pulse"></div>
             </div>
         </div>
     </section>

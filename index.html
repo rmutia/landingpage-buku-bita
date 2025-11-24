@@ -6,55 +6,73 @@
     <title>Kreabita - Berpetualang di Dunia Komputer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['VT323', 'monospace'],
+            },
+            boxShadow: {
+              'neobrutal': '5px 5px 0px 0px #000000',
+              'neobrutal-sm': '3px 3px 0px 0px #000000',
+              'neobrutal-lg': '8px 8px 0px 0px #000000',
+              'neobrutal-white': '5px 5px 0px 0px #ffffff',
+            },
+            colors: {
+              brand: {
+                yellow: '#FBbf24',
+                purple: '#A855F7',
+                lime: '#a3e635',
+                cyan: '#22d3ee',
+                pink: '#f472b6',
+                black: '#121212',
+              }
             },
             animation: {
-              blob: "blob 7s infinite",
+              'marquee': 'marquee 25s linear infinite',
             },
             keyframes: {
-              blob: {
-                "0%": {
-                  transform: "translate(0px, 0px) scale(1)",
-                },
-                "33%": {
-                  transform: "translate(30px, -50px) scale(1.1)",
-                },
-                "66%": {
-                  transform: "translate(-20px, 20px) scale(0.9)",
-                },
-                "100%": {
-                  transform: "translate(0px, 0px) scale(1)",
-                },
-              },
-            },
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              }
+            }
           },
         },
       };
     </script>
     <style>
-        .text-gradient {
-            background: linear-gradient(to right, #4f46e5, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .halftone-pattern {
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
         }
-        .hero-pattern {
-            background-image: radial-gradient(#6366f1 0.5px, transparent 0.5px), radial-gradient(#6366f1 0.5px, #f8fafc 0.5px);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-            opacity: 0.03;
+        
+        .diagonal-stripes {
+            background: repeating-linear-gradient(
+              45deg,
+              #ffffff,
+              #ffffff 10px,
+              #f3f4f6 10px,
+              #f3f4f6 20px
+            );
         }
-        .book-shadow {
-            box-shadow: 20px 20px 60px -10px rgba(0, 0, 0, 0.1), 0 10px 20px -10px rgba(0, 0, 0, 0.05);
+
+        .text-stroke-sm {
+          -webkit-text-stroke: 1px #000;
         }
-        .animation-delay-2000 {
-            animation-delay: 2s;
+
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
     </style>
   <script type="importmap">
@@ -68,7 +86,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-600 antialiased selection:bg-purple-100 selection:text-purple-700">
+  <body class="bg-[#f0f0f0] text-slate-900 antialiased selection:bg-brand-lime selection:text-black">
     <div id="root"></div>
   </body>
 </html>
