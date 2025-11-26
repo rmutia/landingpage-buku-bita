@@ -5,7 +5,7 @@ export const Pricing: React.FC = () => {
 
   const handleBuy = (productName: string) => {
     // Replace with actual phone number
-    const phoneNumber = "62895601009395"; 
+    const phoneNumber = "6285221288378"; 
     const message = `Halo Admin Kreabita, saya tertarik membeli *${productName}*. Mohon informasi cara pembayarannya.`;
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

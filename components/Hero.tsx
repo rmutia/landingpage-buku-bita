@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Star, Zap, MousePointer2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Zap, MousePointer2 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const scrollToPricing = () => {
@@ -44,26 +44,6 @@ export const Hero: React.FC = () => {
                         Lihat Isi Buku
                     </button>
                 </div>
-                
-                <div className="flex items-center justify-center lg:justify-start gap-5 pt-6">
-                    <div className="flex -space-x-6 hover:space-x-1 transition-all duration-300">
-                        <div className="w-14 h-14 border-4 border-black bg-brand-cyan rounded-full z-30 overflow-hidden">
-                           <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" />
-                        </div>
-                        <div className="w-14 h-14 border-4 border-black bg-brand-pink rounded-full z-20 overflow-hidden">
-                            <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="User" />
-                        </div>
-                        <div className="w-14 h-14 border-4 border-black bg-brand-lime rounded-full z-10 overflow-hidden">
-                            <img className="w-full h-full object-cover" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mimi" alt="User" />
-                        </div>
-                    </div>
-                    <div className="text-left bg-white px-4 py-2 border-2 border-black shadow-neobrutal-sm">
-                         <p className="text-sm text-black font-bold uppercase font-display">Disukai oleh 500+ Orang Tua & Guru</p>
-                         <div className="flex gap-1">
-                             {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-brand-yellow text-black" />)}
-                         </div>
-                    </div>
-                </div>
             </div>
 
             <div className="lg:w-1/2 relative flex justify-center perspective-1000 mt-12 lg:mt-0">
@@ -85,18 +65,13 @@ export const Hero: React.FC = () => {
                             {/* Background Pattern on Book */}
                             <div className="absolute inset-0 halftone-pattern opacity-20"></div>
                             
-                            {/* Sticker */}
-                            <div className="absolute top-4 right-4 bg-brand-yellow text-black text-xs font-bold px-3 py-2 border-2 border-black rotate-12 shadow-[2px_2px_0px_black]">
-                                BEST SELLER!
-                            </div>
-
                             {/* Main Title */}
                             <div className="relative z-10 text-center border-4 border-black bg-white p-6 shadow-neobrutal mb-6">
                                 <h2 className="text-6xl font-black font-display tracking-tighter text-black uppercase leading-none">
-                                    KREA<br/>BITA
+                                    BITA
                                 </h2>
                                 <div className="w-full h-2 bg-black my-2"></div>
-                                <p className="font-mono text-lg font-bold">COMPUTER SCIENCE FOR KIDS</p>
+                                <p className="font-mono text-sm sm:text-lg font-bold uppercase leading-tight">Berpetualang di Dunia Komputer</p>
                             </div>
 
                             {/* Character Illustration Placeholder */}

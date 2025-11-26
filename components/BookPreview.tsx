@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, X } from 'lucide-react';
 
 interface PreviewCardProps {
   image: string;
@@ -35,10 +35,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ image, title, description, ta
             />
             {/* Overlay Pattern */}
             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')]"></div>
-            
-            <div className="absolute bottom-0 right-0 bg-black text-white px-3 py-1 font-mono text-xs font-bold border-t-4 border-l-4 border-black">
-                PAGE PREVIEW
-            </div>
         </div>
         
         {/* Content */}
@@ -60,9 +56,13 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ image, title, description, ta
 );
 
 export const BookPreview: React.FC = () => {
+    const [isTocOpen, setIsTocOpen] = useState(false);
+
     // Using Placehold.co for generated book page-like images
     const generateImage = (text: string, bgColor: string) => 
         `https://placehold.co/600x450/${bgColor.replace('#','')}/121212.png?text=${encodeURIComponent(text)}&font=montserrat`;
+
+    const toggleToc = () => setIsTocOpen(!isTocOpen);
 
   return (
     <section id="isi-buku" className="py-24 bg-brand-yellow border-t-4 border-b-4 border-black">
@@ -129,11 +129,105 @@ export const BookPreview: React.FC = () => {
             </div>
             
             <div className="mt-16 text-center">
-                <button className="px-10 py-5 bg-black text-white text-xl font-bold font-display uppercase border-4 border-transparent hover:bg-white hover:text-black hover:border-black shadow-neobrutal hover:translate-x-1 hover:translate-y-1 transition-all">
+                <button 
+                    onClick={toggleToc}
+                    className="px-10 py-5 bg-black text-white text-xl font-bold font-display uppercase border-4 border-transparent hover:bg-white hover:text-black hover:border-black shadow-neobrutal hover:translate-x-1 hover:translate-y-1 transition-all"
+                >
                     Lihat Daftar Isi Lengkap
                 </button>
             </div>
         </div>
+
+        {/* Table of Contents Modal */}
+        {isTocOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={toggleToc}></div>
+                <div className="relative bg-white w-full max-w-3xl max-h-[85vh] overflow-hidden border-4 border-black shadow-neobrutal-lg flex flex-col animate-in fade-in zoom-in duration-300">
+                    {/* Modal Header */}
+                    <div className="flex items-center justify-between border-b-4 border-black p-4 bg-brand-cyan">
+                        <h3 className="font-display font-black text-2xl uppercase">DAFTAR ISI</h3>
+                        <button onClick={toggleToc} className="bg-black text-white p-2 hover:bg-white hover:text-black border-2 border-black transition-colors">
+                            <X className="w-6 h-6" />
+                        </button>
+                    </div>
+
+                    {/* Modal Content - Scrollable */}
+                    <div className="overflow-y-auto p-6 md:p-8 font-medium">
+                        <div className="space-y-8 font-sans text-black">
+                            
+                            {/* Section 1 */}
+                            <div>
+                                <h4 className="font-display font-bold text-xl uppercase mb-3 bg-brand-lime inline-block px-2 border-2 border-black shadow-[4px_4px_0px_black]">Pendahuluan dan Aktivitas Awal</h4>
+                                <ul className="list-disc pl-5 space-y-2 marker:text-black">
+                                    <li>Berkenalan dengan Bita</li>
+                                    <li>Dansa Algoritma</li>
+                                    <li>Apa itu Komputer?</li>
+                                </ul>
+                            </div>
+
+                            {/* Section 2 */}
+                            <div>
+                                <h4 className="font-display font-bold text-xl uppercase mb-3 bg-brand-purple text-white inline-block px-2 border-2 border-black shadow-[4px_4px_0px_black]">Bagaimana Komputer Bekerja</h4>
+                                <ul className="list-disc pl-5 space-y-2 marker:text-black">
+                                    <li>
+                                        <strong>Input</strong>
+                                        <ul className="list-circle pl-5 mt-1 text-slate-600">
+                                            <li>Papan Ketik (Keyboard)</li>
+                                            <li>Tetikus (Mouse)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Proses</strong>
+                                        <ul className="list-circle pl-5 mt-1 text-slate-600">
+                                            <li>CPU</li>
+                                            <li>RAM dan ROM</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Output</strong>
+                                        <ul className="list-circle pl-5 mt-1 text-slate-600">
+                                            <li>GPU</li>
+                                        </ul>
+                                    </li>
+                                    <li>Bit dan Byte</li>
+                                    <li>Biner: Kode Rahasia Komputer (ASCII)</li>
+                                    <li>Sistem Operasi</li>
+                                    <li>Perangkat Lunak (Software) dan Perangkat Keras (Hardware)</li>
+                                    <li>Amati Apa yang Terjadi Pada Komputer Saat Kita Klik Video!</li>
+                                </ul>
+                            </div>
+
+                            {/* Section 3 */}
+                            <div>
+                                <h4 className="font-display font-bold text-xl uppercase mb-3 bg-brand-yellow inline-block px-2 border-2 border-black shadow-[4px_4px_0px_black]">Sejarah & Perkembangan Modern</h4>
+                                <ul className="list-disc pl-5 space-y-2 marker:text-black">
+                                    <li>Sejarah Komputer (Masa Abad ke-9 hingga 1990-an)</li>
+                                    <li>Komputer Masa Kini</li>
+                                    <li>Cek Pengetahuan Sejarahmu!</li>
+                                    <li>Komputer Ada di Mana-Mana!</li>
+                                </ul>
+                            </div>
+
+                            {/* Section 4 */}
+                            <div>
+                                <h4 className="font-display font-bold text-xl uppercase mb-3 bg-white inline-block px-2 border-2 border-black shadow-[4px_4px_0px_black]">Penutup dan Tips</h4>
+                                <ul className="list-disc pl-5 space-y-2 marker:text-black">
+                                    <li>Rancang Komputermu Sendiri</li>
+                                    <li>Aman Berkomputer</li>
+                                    <li>Teka-Teki Silang</li>
+                                </ul>
+                            </div>
+
+                            {/* Section 5 */}
+                            <div>
+                                <h4 className="font-display font-bold text-xl uppercase mb-3 bg-black text-white inline-block px-2 border-2 border-white shadow-[4px_4px_0px_black]">Sertifikat</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
     </section>
   );
 };
